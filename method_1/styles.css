@@ -145,8 +145,11 @@ flow > *:where(:not(:first-child)) {
 /* Components */
 
 .testimonial-grid {
+  display: grid;
+  gap: 1.5rem;
   padding-block: 2rem;
   width: min(95%, 70rem);
+  margin-inline: auto;
 }
 
 .testimonial {
@@ -154,6 +157,21 @@ flow > *:where(:not(:first-child)) {
   padding: 2rem;
   border-radius: 0.5rem;
   box-shadow: 2.5rem 3.75rem 3rem -3rem hsl(var(--clr-secondary-400) / 0.25);
+}
+
+@media screen and (min-width: 50em) {
+  .testimonial-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .testimonial:last-child {
+    grid-column: 4;
+    grid-row: 1 / span 2;
+  }
+
+  .grid-col-span-2 {
+    grid-column: span 2;
+  }
 }
 
 .testimonial.quote {
